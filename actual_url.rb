@@ -2,11 +2,11 @@ require 'uri'
 require 'net/http'
 
 module ActualURL
-  SERVICE_URL_PATTERNS = ['tinyurl.com', 'is.gd', 'tr.im', 'notlong.com', 'metamark.net']
+  SHORTENED_URL_HOSTS = ['tinyurl.com', 'is.gd', 'tr.im', 'notlong.com', 'metamark.net']
   
   def self.is_tiny?(url)
     u = URI.parse(url)
-    SERVICE_URL_PATTERNS.include? u.host
+    SHORTENED_URL_HOSTS.include? u.host
   rescue URI::InvalidURIError
     false
   end
